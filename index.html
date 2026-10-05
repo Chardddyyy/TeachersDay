@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teachers' Day - John Eric Belen, LPT, MAEd</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Glassmorphism */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(251, 191, 36, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(251, 191, 36, 0.15);
+        }
+
+        /* Glowing Effects */
+        .gold-glow {
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Animated Background Gradient */
+        .bg-animated {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #311042, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-animated min-h-screen relative flex flex-col justify-between">
+
+    <!-- Canvas for floating particles -->
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Main Content Container -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 py-8 md:py-16">
+
+        <!-- HERO SECTION -->
+        <header class="text-center space-y-6 mb-16">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-amber-400 text-sm font-semibold tracking-wide uppercase shadow-lg border border-amber-500/30 animate-bounce">
+                <i class="fa-solid fa-award text-amber-400"></i>
+                <span>World Teachers' Day Tribute</span>
+            </div>
+
+            <div class="space-y-3">
+                <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight">
+                    Happy Teachers' Day!
+                </h1>
+
+                <!-- Elegantly Arranged Name and Credentials -->
+                <div class="pt-2">
+                    <h2
+                        class="text-3xl md:text-6xl font-serif-title font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 gold-glow">
+                        Sir John Eric Belen
+                    </h2>
+                    <p class="text-lg md:text-2xl font-semibold text-amber-300/90 tracking-widest uppercase mt-2">
+                        LPT, MAEd
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                A heartfelt tribute honoring your extraordinary dedication to inspiring young minds, fostering
+                excellence, and shaping a brighter future!
+            </p>
+
+            <!-- Interactive Celebration Button -->
+            <div class="pt-4">
+                <button onclick="triggerSuperConfetti()"
+                    class="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold rounded-2xl shadow-xl shadow-amber-500/20 transform hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-3 mx-auto text-lg">
+                    <i class="fa-solid fa-party-horn text-2xl"></i>
+                    <span>Click for Celebration Surprise! 🎉</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- CREDENTIALS & BADGES -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="glass-card glass-card-hover p-6 rounded-3xl text-center space-y-3">
+                <div
+                    class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center mx-auto text-amber-400 text-2xl border border-amber-500/20">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-100">LPT Excellence</h3>
+                <p class="text-sm text-slate-400">Licensed Professional Teacher — A testament to your teaching mastery,
+                    strong integrity, and professional standard.</p>
+            </div>
+
+            <div class="glass-card glass-card-hover p-6 rounded-3xl text-center space-y-3">
+                <div
+                    class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center mx-auto text-indigo-400 text-2xl border border-indigo-500/20">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-100">MAEd Holder</h3>
+                <p class="text-sm text-slate-400">Master of Arts in Education — Demonstrating a lifelong commitment to
+                    higher learning and academic distinction.</p>
+            </div>
+
+            <div class="glass-card glass-card-hover p-6 rounded-3xl text-center space-y-3">
+                <div
+                    class="w-14 h-14 bg-rose-500/10 rounded-2xl flex items-center justify-center mx-auto text-rose-400 text-2xl border border-rose-500/20">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-100">Inspirational Mentor</h3>
+                <p class="text-sm text-slate-400">Role Model & Guide — Far more than an educator, serving as a beacon of
+                    wisdom for both students and family.</p>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE MESSAGE CARD -->
+        <section class="mb-16">
+            <div class="glass-card p-8 md:p-12 rounded-3xl border-amber-500/30 relative overflow-hidden shadow-2xl">
+                <!-- Background decorative glow -->
+                <div
+                    class="absolute -top-24 -right-24 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+
+                <div class="max-w-3xl mx-auto text-center space-y-6 relative z-10">
+                    <i class="fa-solid fa-quote-left text-4xl text-amber-400/40"></i>
+
+                    <h2 class="text-2xl md:text-3xl font-serif-title font-bold text-amber-300">
+                        A Message of Appreciation for Our Dear Uncle
+                    </h2>
+
+                    <p class="text-slate-200 text-base md:text-lg leading-relaxed italic font-light">
+                        "Uncle John Eric, thank you so much for all the support, wisdom, and encouragement you
+                        generously share with us. Your achievement in completing your Master’s Degree (MAEd) and your
+                        steadfast commitment as a Licensed Professional Teacher (LPT) are truly commendable and serve as
+                        an inspiring model for our entire family. May God continue to bless you abundantly in your noble
+                        calling!"
+                    </p>
+
+                    <div
+                        class="pt-4 border-t border-slate-700/60 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400 gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Proud Family Tribute</span>
+                        </div>
+                        <p class="font-semibold text-amber-400/90">#WorldTeachersDay #BestTeacherEver</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE APPRECIATION GENERATOR -->
+        <section class="glass-card p-8 rounded-3xl text-center space-y-6">
+            <h3 class="text-xl font-bold text-amber-300">
+                ✨ Interactive Teacher Appreciation Generator
+            </h3>
+            <p class="text-slate-300 text-sm max-w-md mx-auto">
+                Click the button below to generate meaningful tributes and inspirational compliments for Sir John Eric!
+            </p>
+
+            <div id="complimentBox"
+                class="p-6 bg-slate-900/60 rounded-2xl border border-slate-700/50 min-h-[100px] flex items-center justify-center transition-all duration-300">
+                <p id="complimentText" class="text-lg font-medium text-amber-200 italic">
+                    "A great teacher takes a hand, opens a mind, and touches a heart."
+                </p>
+            </div>
+
+            <button onclick="nextCompliment()"
+                class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl border border-slate-600 transition-all text-sm inline-flex items-center gap-2">
+                <i class="fa-solid fa-arrows-rotate text-amber-400"></i>
+                <span>Show Another Message</span>
+            </button>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 text-center py-6 text-slate-500 text-xs border-t border-slate-800/80">
+        <p>Crafted with pride for <strong>Sir John Eric Belen, LPT, MAEd</strong> | Happy Teachers' Day!</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Confetti Fireworks Function
+        function triggerSuperConfetti() {
+            var duration = 3 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 999 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function () {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+
+        // Compliments Array in English
+        const compliments = [
+            "\"The wisdom and kindness you share will forever leave an indelible imprint on the hearts of your students and family.\"",
+            "\"Sir John Eric, your milestone achievements as an LPT and MAEd holder reflect your extraordinary perseverance and dedication!\"",
+            "\"Teaching is the one profession that creates all other professions. We are immensely proud of you, Uncle!\"",
+            "\"Thank you for being a guiding light and an inspiration behind every dream you help nurture each day.\"",
+            "\"To the world you may be just a teacher, but to your students and family, you are a true hero!\""
+        ];
+
+        let currentIndex = 0;
+        function nextCompliment() {
+            const box = document.getElementById('complimentBox');
+            const text = document.getElementById('complimentText');
+
+            box.style.opacity = '0';
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % compliments.length;
+                text.textContent = compliments[currentIndex];
+                box.style.opacity = '1';
+            }, 200);
+        }
+
+        // Particle Background System
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const particleCount = 40;
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                color: `rgba(251, 191, 36, ${Math.random() * 0.4 + 0.1})`,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Trigger confetti once automatically on load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(triggerSuperConfetti, 600);
+        });
+    </script>
+</body>
+
+</html>
